@@ -17,7 +17,7 @@ export default function LessonModule({ title, subtitle, image, onPress }) {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonText}>Button</Text>
+        <Text style={styles.buttonText}>Começar</Text>
       </TouchableOpacity>
     </View>
   );

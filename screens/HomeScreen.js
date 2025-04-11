@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
     try {
       await AsyncStorage.setItem('@nomeUsuario', nome);
-      Alert.alert(`Seja Bem vindo "${nome}"!`);
+      Alert.alert(`Seja Bem vindo ${nome}!`);
       navigation.navigate('Main')
     } catch (e) {
       Alert.alert('Erro ao salvar o nome.');
