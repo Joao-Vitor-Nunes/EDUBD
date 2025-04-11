@@ -1,8 +1,14 @@
-import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function StartButton() {
+export default function BotaoStart() {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Eu te amo amor! sz")}>
+    <TouchableOpacity 
+      style={styles.button} 
+      onPress={() => navigation.navigate('Home')}
+    >
       <Text style={styles.buttonText}>Começar</Text>
     </TouchableOpacity>
   );
@@ -15,7 +21,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
     top: 30
-    
   },
   buttonText: {
     color: '#fff',
