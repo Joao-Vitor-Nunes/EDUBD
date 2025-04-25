@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function LessonModule({ title, subtitle, image, onPress }) {
+export default function LessonModule({ title, subtitle, image, onPress, locked }) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, locked && { opacity: 0.5 }]}>
       <View style={styles.left}>
         <View style={styles.dot} />
         <Image
-          source={image} 
+          source={image}
           style={styles.avatar}
         />
         <View>
@@ -16,7 +16,11 @@ export default function LessonModule({ title, subtitle, image, onPress }) {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <TouchableOpacity
+        style={[styles.button, locked && { backgroundColor: '#ccc' }]}
+        onPress={locked ? null : onPress}
+        disabled={locked}
+      >
         <Text style={styles.buttonText}>Começar</Text>
       </TouchableOpacity>
     </View>

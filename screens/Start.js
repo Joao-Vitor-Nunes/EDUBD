@@ -20,8 +20,21 @@ export default function HomeScreen() {
 
       {/* Botão que leva para a outra tela */}
       <BotaoStart 
-        title="Começar"
-        onPress={() => navigation.navigate('Home')}
+      title="Começar"
+      onPress={async () => {
+        try {
+          const nome = await AsyncStorage.getItem('@nomeUsuario');
+          if (nome) {
+            navigation.navigate('Main'); // nome já foi informado
+          } else {
+            navigation.navigate('Home'); // nome ainda não foi informado
+          }
+        } catch (e) {
+          console.log('Erro ao verificar AsyncStorage', e);
+          navigation.navigate('Home'); // fallback seguro
+        }
+      }}
+      
     />
 
       <Image 

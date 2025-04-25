@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import Start from './screens/Start';
 import MainScreen from './screens/MainScreen';
+import ScrollHorizontal from './screens/Content1';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,12 @@ export default function App() {
           component={MainScreen} 
           options={{ title: 'Main' }}
         />  
+
+        <Stack.Screen 
+          name="Content1" 
+          component={ScrollHorizontal} 
+          options={{ title: 'Módulo: Introdução' }} 
+        />
 
       </Stack.Navigator>
     </NavigationContainer>
