@@ -1,12 +1,15 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, Dimensions, TouchableOpacity, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // 👈 Importa navegação
 
 const { width, height } = Dimensions.get('window');
 const sideMargin = (width - width * 0.9) / 2; // margem para centralizar os cards
 
 export default function ScrollHorizontal() {
+  const navigation = useNavigation(); // 👈 Hook de navegação
+
   const handleStart = () => {
-    Alert.alert('Vamos lá!', 'Hora de começar esse módulo!');
+    navigation.navigate('QuizModulo1'); // 👈 Redireciona para o quiz
   };
 
   return (
